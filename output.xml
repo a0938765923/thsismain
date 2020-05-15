@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0.4 (Python 3.7.4 on win32)" generated="20200515 20:57:13.222">
+<suite id="s1" name="TMD-4189 Grid Search &amp; TMD-4499 Grid Search by use skip &amp; TMD-4189 Grid Search &amp; TMD-4208 Grid Search &amp; TMD-4209 Filter Grid &amp; TMD-4498 Grid Search by use add &amp; TMD-4497 Grid Search by use best match &amp; TMD-4503 Select to filter the grid by all the columns &amp; TMD-4500 Grid Search by use always skip">
+<suite id="s1-s1" name="TMD-4189 Grid Search" source="C:\Users\mark\Desktop\test_automation\RobotTests\Regression Test\TMD-4189 Grid Search.robot">
+<kw name="Run Keywords" library="BuiltIn" type="setup">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>On The Models Library Page</arg>
+<arg>AND</arg>
+<arg>Models Library::Upload Models Library File</arg>
+<arg>${mdeFileOnlyPowerConnectors}</arg>
+<arg>AND</arg>
+<arg>Models Library::Proceed To Step</arg>
+<arg>Power Connectors</arg>
+<arg>AND</arg>
+<arg>Models Library::Select CheckBox In Update Models Process</arg>
+<arg>test BS1363</arg>
+<arg>Use Best Match</arg>
+<arg>AND</arg>
+<arg>Models Library::Select CheckBox In Update Models Process</arg>
+<arg>test CEE 7(Schuko)</arg>
+<arg>Update Image</arg>
+</arguments>
+<kw name="On The Models Library Page" library="Keywords">
+<doc>Open browser and login dcTrack (default: _admin_) and enter the models library page.</doc>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${user}" != "${EMPTY}"</arg>
+<arg>Login</arg>
+<arg>&amp;{user}</arg>
+<arg>ELSE</arg>
+<arg>Login</arg>
+<arg>&amp;{administrator}</arg>
+</arguments>
+<kw name="Login" library="DCTLibrary">
+<doc>Prepare a dictionary variable as below:</doc>
+<arguments>
+<arg>&amp;{administrator}</arg>
+</arguments>
+<kw name="Register Keyword To Run On Failure" library="SeleniumLibrary">
+<doc>Sets the keyword to execute when a SeleniumLibrary keyword fails.</doc>
+<arguments>
+<arg>Take Capture Page Screenshot</arg>
+</arguments>
+<msg timestamp="20200515 20:57:13.824" level="INFO">Take Capture Page Screenshot will be run on failure.</msg>
+<status status="PASS" starttime="20200515 20:57:13.824" endtime="20200515 20:57:13.824"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${browser}'=='chrome' and ${headless}</arg>
+<arg>Open Headless Browser</arg>
+<arg>${dcTrackURL}</arg>
+<arg>${browser}</arg>
+<arg>&amp;{account}[name]</arg>
+<arg>ELSE IF</arg>
+<arg>'${browser}'=='firefox' and ${headless}</arg>
+<arg>Open Headless Browser For FireFox</arg>
+<arg>${dcTrackURL}</arg>
+<arg>${browser}</arg>
+<arg>&amp;{account}[name]</arg>
+<arg>ELSE</arg>
+<arg>Open Browser Without Certificate Check</arg>
+<arg>${dcTrackURL}</arg>
+<arg>${browser}</arg>
+<arg>&amp;{account}[name]</arg>
+</arguments>
+<kw name="Open Browser Without Certificate Check" library="DCTLibrary">
+<arguments>
+<arg>${dcTrackURL}</arg>
+<arg>${browser}</arg>
+<arg>&amp;{account}[name]</arg>
+</arguments>
+<kw name="Accept Insecure Certs" library="dctSeleniumLibrary">
+<arguments>
+<arg>${browser}</arg>
+</arguments>
+<assign>
+<var>${capabilities}</var>
+</assign>
+<msg timestamp="20200515 20:57:13.895" level="INFO">${capabilities} = {'browserName': 'chrome', 'version': '', 'platform': 'ANY', 'acceptSslCerts': True, 'acceptInsecureCerts': True, 'goog:loggingPrefs': {'performance': 'ALL', 'browser': 'ALL'}}</msg>
+<status status="PASS" starttime="20200515 20:57:13.825" endtime="20200515 20:57:13.895"></status>
+</kw>
+<kw name="Open And Browse Without Certificate Check" library="dctSeleniumLibrary">
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>${browserAlias}</arg>
+<arg>${capabilities}</arg>
+</arguments>
+<msg timestamp="20200515 20:57:13.895" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<errors>
+<msg timestamp="20200515 20:57:16.837" level="ERROR">Execution stopped by user.</msg>
+</errors>
+</robot>
