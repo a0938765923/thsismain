@@ -1,0 +1,60 @@
+TC01-Login success test    12253
+TC02-Login fail test    12114
+TC03-Log out test    13533
+TC04-Test for Doctor create an account Fail    25854
+TC05-Test For Patient Should Only See Self On Account Page    14916
+TC06-Test For Click Patient Detail Is Correct    16008
+TC07-Test For Patient Can Edit Address And Email    18690
+TC08-Test For Patient Save Failed    18770
+TC09-Test For Doctor Should See Self And Patient In Account Page    14962
+TC10-Test For Click Doctor Detail Is Correct    16229
+TC11-Test For Docter Can Modify An Account    18198
+TC12-Test For Doctor Save Failed    18628
+TC13-Test For Admin Disable Account    24824
+TC14-Test for Docter can delete an account    18226
+TC15-Test For Patient Make An Appointment    27604
+TC16-Test For Doctor Should Only See Patient In Appointment Page    15184
+TC17-Test For Patient Save Failed    25204
+TC18-Test For Patient Should Only See Self In Appointment Page    15137
+TC19-Test For Patient Edit An Appointment    20853
+TC20-Test For Patient Cancel An Appointment    18682
+TC21-Test For Doctor Cancel An Appointment    18382
+TC22-Test For Doctor Can Add Medication    21936
+TC23-Test For Doctor Can Modify Medication    19806
+TC24-Test For Patient Should Only See Myself In Case Page    14623
+TC25-Test For Chart Should Be Visible When User Click Chart    18258
+TC26-Test For Patient Should Only See Myself In Rental Page    15632
+TC27-Test For Patient Make A Rental    25765
+TC28-Test For Patient Save Failed    23184
+TC29-Test For Start Date And End Date Should Be Expected    18695
+TC30-Test For Doctor Delete A Rental    19631
+TC01-Login success test    12253
+TC02-Login fail test    12114
+TC03-Log out test    13533
+TC04-Test for Doctor create an account Fail    25854
+TC05-Test For Patient Should Only See Self On Account Page    14916
+TC06-Test For Click Patient Detail Is Correct    16008
+TC07-Test For Patient Can Edit Address And Email    18690
+TC08-Test For Patient Save Failed    18770
+TC09-Test For Doctor Should See Self And Patient In Account Page    14962
+TC10-Test For Click Doctor Detail Is Correct    16229
+TC11-Test For Docter Can Modify An Account    18198
+TC12-Test For Doctor Save Failed    18628
+TC13-Test For Admin Disable Account    24824
+TC14-Test for Docter can delete an account    18226
+TC15-Test For Patient Make An Appointment    27604
+TC16-Test For Doctor Should Only See Patient In Appointment Page    15184
+TC17-Test For Patient Save Failed    25204
+TC18-Test For Patient Should Only See Self In Appointment Page    15137
+TC19-Test For Patient Edit An Appointment    20853
+TC20-Test For Patient Cancel An Appointment    18682
+TC21-Test For Doctor Cancel An Appointment    18382
+TC22-Test For Doctor Can Add Medication    21936
+TC23-Test For Doctor Can Modify Medication    19806
+TC24-Test For Patient Should Only See Myself In Case Page    14623
+TC25-Test For Chart Should Be Visible When User Click Chart    18258
+TC26-Test For Patient Should Only See Myself In Rental Page    15632
+TC27-Test For Patient Make A Rental    25765
+TC28-Test For Patient Save Failed    23184
+TC29-Test For Start Date And End Date Should Be Expected    18695
+TC30-Test For Doctor Delete A Rental    19631
