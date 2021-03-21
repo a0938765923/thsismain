@@ -1,7 +1,8 @@
 import ntutrun
 import os
 import sys
-
+sys.path.append(r'C:\Users\User\Desktop\RobotTestThsis')
+# sys.path.append(r'C:\Users\User\Desktop\test_automation\RobotTests')
 arguments = len(sys.argv) - 1
 key=[]
 value=[]
@@ -15,8 +16,10 @@ while (arguments >= position):
     position = position + 1
     
 for i in range(0,len(key)):
+    # print("key[i]",key[i])
+    # print("value[i]",value[i])
     opt[key[i]]=value[i]
-
+# print(opt)
 retval = os.getcwd()
 ntutrun.exe(**opt, outpath=retval)
 
