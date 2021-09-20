@@ -105,9 +105,9 @@ RunBtn.pack(side=tk.LEFT)
 text_frame = tk.Frame(window)
 text_frame.pack(side=tk.TOP)
 txtarea = tk.Text(text_frame)
+txtarea.configure(state='disabled')
 txtarea.pack(side=tk.LEFT)
-# pathh = tk.Entry(text_frame)
-# pathh.pack(side=LEFT, expand=True, fill=X, padx=20)
+
 
 result_label = tk.Label(window, background='white')
 result_label.pack()
