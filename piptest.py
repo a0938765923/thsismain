@@ -1,76 +1,115 @@
 import ntutrun
 import os
-import sys
-sys.path.append(r'C:\Users\User\Desktop\RobotTestThsis')
+# import sys
+# sys.path.append(r'C:\Users\User\Desktop\RobotTestThsis')
 # sys.path.append(r'C:\Users\User\Desktop\test_automation\RobotTests')
-arguments = len(sys.argv) - 1
-key=[]
-value=[]
-opt={}
-position = 1
-while (arguments >= position):
-    if sys.argv[position].startswith("--"):
-        key.append(sys.argv[position][2:])
-    else:
-        value.append(sys.argv[position])
-    position = position + 1
+# arguments = len(sys.argv) - 1
+# key=[]
+# value=[]
+# opt={}
+# position = 1
+# while (arguments >= position):
+#     if sys.argv[position].startswith("--"):
+#         key.append(sys.argv[position][2:])
+#     else:
+#         value.append(sys.argv[position])
+#     position = position + 1
     
-for i in range(0,len(key)):
-    # print("key[i]",key[i])
-    # print("value[i]",value[i])
-    opt[key[i]]=value[i]
+# for i in range(0,len(key)):
+#     # print("key[i]",key[i])
+#     # print("value[i]",value[i])
+#     opt[key[i]]=value[i]
 # print(opt)
-retval = os.getcwd()
-ntutrun.exe(**opt, outpath=retval)
+# retval = os.getcwd()
+# ntutrun.exe(**opt, outpath=retval)
 
 # userXmlFileXpath="C:/Users/mark/Desktop/output.xml"
 
-# import tkinter as tk
-# import math
+import tkinter as tk
+import os
+from tkinter.filedialog import askdirectory, askopenfilename
+from tkinter import *
+from tkinter import filedialog
 
-# window = tk.Tk()
-# window.title('BMI App')
-# window.geometry('800x600')
-# window.configure(background='white')
 
-# def calculate_bmi_number():
-#     height = float(height_entry.get())
-#     weight = float(weight_entry.get())
-#     print(height)
-#     print(weight)
-#     bmi_value = round(weight / math.pow(height, 2.0), 2)
-#     result = '你的 BMI 指數為：{} {}'.format(bmi_value, get_bmi_status_description(bmi_value))
-#     result_label.configure(text=result)
 
-# def get_bmi_status_description(bmi_value):
-#     if bmi_value < 18.5:
-#         return '體重過輕囉，多吃點！'
-#     elif bmi_value >= 18.5 and bmi_value < 24:
-#         return '體重剛剛好，繼續保持！'
-#     elif bmi_value >= 24 :
-#         return '體重有點過重囉，少吃多運動！'
+window = tk.Tk()
+window.title('測試案例選擇工具')
+window.geometry('800x600')
+window.configure(background='white')
 
-# header_label = tk.Label(window, text='BMI 計算器', background='white')
-# header_label.pack()
+def selectPath():
+    path_=askdirectory()
+    path.set(path_)
 
-# height_frame = tk.Frame(window)
-# height_frame.pack(side=tk.TOP)
-# height_label = tk.Label(height_frame, text='專案路徑（Project Path）',background='white')
-# height_label.pack(side=tk.LEFT)
-# height_entry = tk.Entry(height_frame)
-# height_entry.pack(side=tk.LEFT)
+def get_value():
+    print("this is my show")
+    opt={}
+    opt["ProjectPath"]=height_entry.get()
+    opt["commandOPt"]=weight_entry.get()
+    opt["autoRun"]=variable.get()
+    print(opt)
+    retval = os.getcwd()
+    print(retval)
+    ntutrun.exe(**opt, outpath=retval)
+    path = 'C://Users//a0938//Desktop//mytree.txt'  # 文件路径
+    f = open(path,encoding="utf-8")
+    txtarea.delete('1.0','end')
+    # print()
+    txtarea.insert(END, f.read())
+    f.close()
+    if os.path.exists(path):  # 如果文件存在
+        os.remove(path)  
+    # print("--ProjectPath "+height_entry.get()+" --commandOPt "+weight_entry.get()+" --autoRun "+variable.get())
 
-# weight_frame = tk.Frame(window)
-# weight_frame.pack(side=tk.TOP)
-# weight_label = tk.Label(weight_frame, text='執行專案的地方（Run Project Path）', background='white')
-# weight_label.pack(side=tk.LEFT)
-# weight_entry = tk.Entry(weight_frame)
-# weight_entry.pack(side=tk.LEFT)
 
-# result_label = tk.Label(window, background='white')
-# result_label.pack()
+path=StringVar()
+header_label = tk.Label(window, text='測試案例選擇工具', background='white')
+header_label.pack()
 
-# calculate_btn = tk.Button(window, text='馬上計算', command=calculate_bmi_number, background='white')
-# calculate_btn.pack()
+height_frame = tk.Frame(window)
+height_frame.pack(side=tk.TOP)
 
-# window.mainloop()
+height_label = tk.Label(height_frame, text='專案路徑（Project Path）',background='white')
+height_label.pack(side=tk.LEFT)
+height_entry = tk.Entry(height_frame,textvariable=path)
+height_entry.pack(side=tk.LEFT)
+btn=tk.Button(height_frame,text="路徑選擇",command=selectPath)
+btn.pack(side=tk.LEFT)
+
+weight_frame = tk.Frame(window)
+weight_frame.pack(side=tk.TOP)
+weight_label = tk.Label(weight_frame, text='Command Opt', background='white')
+weight_label.pack(side=tk.LEFT)
+weight_entry = tk.Entry(weight_frame)
+weight_entry.pack(side=tk.LEFT)
+
+OptionList = [
+"True",
+"False"
+] 
+Auto_Run_frame = tk.Frame(window)
+Auto_Run_frame.pack(side=tk.TOP)
+Auto_Run_label = tk.Label(Auto_Run_frame, text='Auto Run', background='white')
+Auto_Run_label.pack(side=tk.LEFT)
+variable = tk.StringVar(Auto_Run_frame)
+variable.set(OptionList[0])
+opt = tk.OptionMenu(Auto_Run_frame, variable, *OptionList)
+opt.pack(side=tk.LEFT)
+
+Run_frame = tk.Frame(window)
+Run_frame.pack(side=tk.TOP)
+RunBtn=tk.Button(Run_frame,text="執行",command=get_value)
+RunBtn.pack(side=tk.LEFT)
+
+text_frame = tk.Frame(window)
+text_frame.pack(side=tk.TOP)
+txtarea = tk.Text(text_frame)
+txtarea.pack(side=tk.LEFT)
+# pathh = tk.Entry(text_frame)
+# pathh.pack(side=LEFT, expand=True, fill=X, padx=20)
+
+result_label = tk.Label(window, background='white')
+result_label.pack()
+
+window.mainloop()
