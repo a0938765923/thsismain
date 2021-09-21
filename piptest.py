@@ -57,7 +57,7 @@ def get_value():
     f = open(path,encoding="utf-8")
     # print()
     txtarea.insert(END, f.read())
-    txtarea.configure(state='disabled')
+    # txtarea.configure(state='disabled')
     f.close()
     if os.path.exists(path):  # 如果文件存在
         os.remove(path)  
