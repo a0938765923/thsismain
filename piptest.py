@@ -52,11 +52,12 @@ def get_value():
     retval = os.getcwd()
     print(retval)
     ntutrun.exe(**opt, outpath=retval)
+    txtarea.delete('1.0','end')
     path = 'C://Users//a0938//Desktop//mytree.txt'  # 文件路径
     f = open(path,encoding="utf-8")
-    txtarea.delete('1.0','end')
     # print()
     txtarea.insert(END, f.read())
+    txtarea.configure(state='disabled')
     f.close()
     if os.path.exists(path):  # 如果文件存在
         os.remove(path)  
@@ -105,7 +106,6 @@ RunBtn.pack(side=tk.LEFT)
 text_frame = tk.Frame(window)
 text_frame.pack(side=tk.TOP)
 txtarea = tk.Text(text_frame)
-txtarea.configure(state='disabled')
 txtarea.pack(side=tk.LEFT)
 
 
