@@ -44,7 +44,6 @@ window.configure(background='white')
 def selectPath():
     path_=askdirectory()
     path.set(path_)
-    # print(path)
 
 
 def get_value():
@@ -77,7 +76,6 @@ def push(path, msg):
     repo.git.push()
 
 path=StringVar()
-# print(path)
 header_label = tk.Label(window, text='測試案例選擇工具', background='white')
 header_label.pack()
 
