@@ -1,5 +1,8 @@
+from re import M
 import ntutrun
 import os
+from git import Repo
+
 # import sys
 # sys.path.append(r'C:\Users\User\Desktop\RobotTestThsis')
 # sys.path.append(r'C:\Users\User\Desktop\test_automation\RobotTests')
@@ -41,6 +44,8 @@ window.configure(background='white')
 def selectPath():
     path_=askdirectory()
     path.set(path_)
+    # print(path)
+
 
 def get_value():
     print("this is my show")
@@ -51,9 +56,9 @@ def get_value():
     print(opt)
     retval = os.getcwd()
     print(retval)
-    ntutrun.exe(**opt, outpath=retval)
     txtarea.delete('1.0','end')
-    path = 'C://Users//a0938//Desktop//mytree.txt'  # 文件路径
+    ntutrun.exe(**opt, outpath=retval)
+    path = 'C://Users//asus//Desktop//mytree.txt'   # 文件路徑
     f = open(path,encoding="utf-8")
     # print()
     txtarea.insert(END, f.read())
@@ -63,8 +68,16 @@ def get_value():
         os.remove(path)  
     # print("--ProjectPath "+height_entry.get()+" --commandOPt "+weight_entry.get()+" --autoRun "+variable.get())
 
+def push(path, msg):
+    repo= Repo(path)
+    # 'C:\\Users\\asus\\Desktop\\RobotTestThsis\\RobotTestThsis'
+    print(repo.git.add('.')) 
+    # repo.git.commit('-m test')
+    repo.git.commit("-m " + msg)
+    repo.git.push()
 
 path=StringVar()
+# print(path)
 header_label = tk.Label(window, text='測試案例選擇工具', background='white')
 header_label.pack()
 
@@ -111,5 +124,8 @@ txtarea.pack(side=tk.LEFT)
 
 result_label = tk.Label(window, background='white')
 result_label.pack()
+RunBtn1=tk.Button(window,text="push",command=push(path.get(),"commitTest"))
+# print(path)
+RunBtn1.pack(side=tk.TOP)
 
 window.mainloop()

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.0.4 (Python 3.9.0 on win32)" generated="20210202 16:34:17.542">
-<suite id="s1" name="TC02-Test for Doctor Create Account" source="C:\Users\User\Desktop\RobotTestThsis\Project\TC02-Test for Doctor Create Account.robot">
-<test id="s1-t1" name="Doctor account should create patient account successfully">
+<robot generator="Robot 3.0.4 (Python 3.6.6 on win32)" generated="20211021 10:22:19.991">
+<suite id="s1" name="TC03-Test For Patient Data On Account Page" source="C:\Users\asus\Desktop\RobotTestThsis\RobotTestThsis\Project\TC03-Test For Patient Data On Account Page.robot">
+<test id="s1-t1" name="Patient should only see their own data on account page">
 <kw name="Run Keywords" library="BuiltIn" type="setup">
 <doc>Executes all the given keywords in a sequence.</doc>
 <arguments>
@@ -17,77 +17,39 @@
 <arg>http://localhost:4200/</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20210202 16:34:17.863" level="INFO">Opening browser 'chrome' to base url 'http://localhost:4200/'.</msg>
+<msg timestamp="20211021 10:22:20.591" level="INFO">Opening browser 'chrome' to base url 'http://localhost:4200/'.</msg>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20210202 16:34:21.418" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<status status="PASS" starttime="20210202 16:34:21.418" endtime="20210202 16:34:21.418"></status>
+<msg timestamp="20211021 10:22:24.260" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20211021 10:22:24.259" endtime="20211021 10:22:24.260"></status>
 </kw>
-<msg timestamp="20210202 16:34:21.631" level="FAIL">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 86
-Current browser version is 88.0.4324.104 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
+<msg timestamp="20211021 10:22:24.273" level="FAIL">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 93
+Current browser version is 95.0.4638.54 with binary path C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
 </msg>
-<status status="FAIL" starttime="20210202 16:34:17.863" endtime="20210202 16:34:21.631"></status>
+<status status="FAIL" starttime="20211021 10:22:20.591" endtime="20211021 10:22:24.273"></status>
 </kw>
-<status status="FAIL" starttime="20210202 16:34:17.863" endtime="20210202 16:34:21.631"></status>
+<status status="FAIL" starttime="20211021 10:22:20.590" endtime="20211021 10:22:24.273"></status>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary" type="teardown">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20210202 16:34:21.632" endtime="20210202 16:34:21.632"></status>
+<status status="PASS" starttime="20211021 10:22:24.274" endtime="20211021 10:22:24.274"></status>
 </kw>
-<status status="FAIL" starttime="20210202 16:34:17.862" endtime="20210202 16:34:21.633" critical="yes">Setup failed:
-SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 86
-Current browser version is 88.0.4324.104 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
+<status status="FAIL" starttime="20211021 10:22:20.589" endtime="20211021 10:22:24.275" critical="yes">Setup failed:
+SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 93
+Current browser version is 95.0.4638.54 with binary path C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
 </status>
 </test>
-<test id="s1-t2" name="Doctor account should create patient account unsuccessfully">
-<kw name="Run Keywords" library="BuiltIn" type="setup">
-<doc>Executes all the given keywords in a sequence.</doc>
-<arguments>
-<arg>Open Browser</arg>
-<arg>http://localhost:4200/</arg>
-<arg>chrome</arg>
-<arg>AND</arg>
-<arg>Maximize Browser Window</arg>
-</arguments>
-<kw name="Open Browser" library="SeleniumLibrary">
-<doc>Opens a new browser instance to the given ``url``.</doc>
-<arguments>
-<arg>http://localhost:4200/</arg>
-<arg>chrome</arg>
-</arguments>
-<msg timestamp="20210202 16:34:21.637" level="INFO">Opening browser 'chrome' to base url 'http://localhost:4200/'.</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20210202 16:34:24.961" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<status status="PASS" starttime="20210202 16:34:24.960" endtime="20210202 16:34:24.961"></status>
-</kw>
-<msg timestamp="20210202 16:34:24.963" level="FAIL">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 86
-Current browser version is 88.0.4324.104 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
-</msg>
-<status status="FAIL" starttime="20210202 16:34:21.637" endtime="20210202 16:34:24.963"></status>
-</kw>
-<status status="FAIL" starttime="20210202 16:34:21.636" endtime="20210202 16:34:24.963"></status>
-</kw>
-<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20210202 16:34:24.964" endtime="20210202 16:34:24.965"></status>
-</kw>
-<status status="FAIL" starttime="20210202 16:34:21.634" endtime="20210202 16:34:24.965" critical="yes">Setup failed:
-SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 86
-Current browser version is 88.0.4324.104 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
-</status>
-</test>
-<status status="FAIL" starttime="20210202 16:34:17.544" endtime="20210202 16:34:24.966"></status>
+<status status="FAIL" starttime="20211021 10:22:19.996" endtime="20211021 10:22:24.281"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="2">Critical Tests</stat>
-<stat pass="0" fail="2">All Tests</stat>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="2" id="s1" name="TC02-Test for Doctor Create Account">TC02-Test for Doctor Create Account</stat>
+<stat pass="0" fail="1" id="s1" name="TC03-Test For Patient Data On Account Page">TC03-Test For Patient Data On Account Page</stat>
 </suite>
 </statistics>
 <errors>
