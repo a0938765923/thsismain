@@ -122,8 +122,8 @@ txtarea.pack(side=tk.LEFT)
 
 result_label = tk.Label(window, background='white')
 result_label.pack()
-RunBtn1=tk.Button(window,text="push",command=push(path.get(),"commitTest"))
-# print(path.get())
+RunBtn1=tk.Button(window,text="push",command=push(path.get(),"commitTest1"))
+print(path.get())
 RunBtn1.pack(side=tk.TOP)
 
 window.mainloop()
