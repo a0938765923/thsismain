@@ -1,10 +1,7 @@
-from re import M
 import ntutrun
 import os
-from git import Repo
-
-# import sys
-# sys.path.append(r'C:\Users\User\Desktop\RobotTestThsis')
+import sys
+sys.path.append(r'C:\Users\asus\Downloads\RobotTestThsis\RobotTestThsis\Project')
 # sys.path.append(r'C:\Users\User\Desktop\test_automation\RobotTests')
 # arguments = len(sys.argv) - 1
 # key=[]
@@ -31,23 +28,26 @@ from git import Repo
 import tkinter as tk
 import os
 from tkinter.filedialog import askdirectory, askopenfilename
+from tkinter import messagebox
 from tkinter import *
 from tkinter import filedialog
+from tkinter import simpledialog
+from git import Repo
 
 
 
 window = tk.Tk()
 window.title('測試案例選擇工具')
-window.geometry('800x600')
+window.geometry('1000x800')
 window.configure(background='white')
+
+x=0
 
 def selectPath():
     path_=askdirectory()
     path.set(path_)
 
-
 def get_value():
-    print("this is my show")
     opt={}
     opt["ProjectPath"]=height_entry.get()
     opt["commandOPt"]=weight_entry.get()
@@ -55,27 +55,40 @@ def get_value():
     print(opt)
     retval = os.getcwd()
     print(retval)
+    x=ntutrun.exe(**opt, outpath=retval)
+    print("ans",x)
     txtarea.delete('1.0','end')
-    ntutrun.exe(**opt, outpath=retval)
-    path = 'C://Users//asus//Desktop//mytree.txt'   # 文件路徑
+    path = 'C://Users//asus//Desktop//mytree.txt'  # 文件路径
     f = open(path,encoding="utf-8")
     # print()
     txtarea.insert(END, f.read())
     # txtarea.configure(state='disabled')
     f.close()
     if os.path.exists(path):  # 如果文件存在
-        os.remove(path)  
-    # print("--ProjectPath "+height_entry.get()+" --commandOPt "+weight_entry.get()+" --autoRun "+variable.get())
+        os.remove(path)
+    
+    if x == 1:
+        m.set(x)
+        header_label1.config( background='green')
+        
+        RunBtn1.pack()
+    else:
+        header_label1.config( background='red')
 
-def push(path, msg):
-    repo= Repo(path)
-    # 'C:\\Users\\asus\\Desktop\\RobotTestThsis\\RobotTestThsis'
-    print(repo.git.add('.')) 
-    # repo.git.commit('-m test')
+
+def push():
+    print("------",m.get())
+    print("------",path.get())
+    msg = tk.simpledialog.askstring(title = '獲取資訊',prompt='請輸入Commit msg：',initialvalue = '')
+    repo= Repo(path.get())
+    repo.git.add('.')
     repo.git.commit("-m " + msg)
     repo.git.push()
 
+
+m=StringVar() 
 path=StringVar()
+print(path)
 header_label = tk.Label(window, text='測試案例選擇工具', background='white')
 header_label.pack()
 
@@ -95,6 +108,7 @@ weight_label = tk.Label(weight_frame, text='Command Opt', background='white')
 weight_label.pack(side=tk.LEFT)
 weight_entry = tk.Entry(weight_frame)
 weight_entry.pack(side=tk.LEFT)
+RunBtn1=tk.Button(text="push",command = push)
 
 OptionList = [
 "True",
@@ -120,10 +134,13 @@ txtarea = tk.Text(text_frame)
 txtarea.pack(side=tk.LEFT)
 
 
+
 result_label = tk.Label(window, background='white')
 result_label.pack()
-RunBtn1=tk.Button(window,text="push",command=push(path.get(),"commitTest1"))
-print(path.get())
-RunBtn1.pack(side=tk.TOP)
 
+push_frame = tk.Frame(window)
+push_frame.pack(side=tk.TOP)
+
+header_label1 = tk.Label(window,text="Status",width=30,height=10)
+header_label1.pack()
 window.mainloop()
